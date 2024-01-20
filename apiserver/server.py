@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 
-from flask import Flask
+from flask import Flask, jsonify
+from flask_swagger import swagger
 
 from apiserver.config_repo import config
 from apiserver.server_init.app_sequence import AppSequence
@@ -8,6 +9,11 @@ from apiserver.server_init.request_handlers import RequestHandlers
 
 app = Flask(__name__, static_url_path="/static")
 AppSequence(app).start(request_handlers=RequestHandlers())
+
+
+@app.route("/spec")
+def spec():
+    return jsonify(swagger(app))
 
 
 # =================== MAIN =======================

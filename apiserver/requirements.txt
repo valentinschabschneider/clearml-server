@@ -10,6 +10,7 @@ elasticsearch==7.17.9
 fastjsonschema>=2.8
 flask-compress>=1.4.0
 flask-cors>=3.0.5
+flask-swagger
 flask>=2.3.3
 furl>=2.0.0
 google-cloud-storage>=2.8.0
